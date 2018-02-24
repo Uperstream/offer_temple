@@ -42,7 +42,7 @@ function ShowLot(){
   // lotShow.style("position","fixed");
   // lotShow.style("left","50%");
   // lotShow.style("margin-left" ,-lotShow.width);
-//   lotShow.center();
+  lotShow.center();
   lotShow.style("padding", "5%");
   lotShow.style("color", "#555");
   lotShow.style("background-color", "#fff");
