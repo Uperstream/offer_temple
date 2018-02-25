@@ -16,7 +16,7 @@ function setup() {
 
 function gotData(lots) {
   for (var i = 0; i < lots.lots.length; j++) {
-    lot[i] = creatP(lots.lots[i].content);
+    lot[i] = lots.lots[i].content;
   }
 }
 
@@ -30,7 +30,7 @@ function backImg(img){
 
 function ShowLot(){
   j = int(random(lot.length));
-  lotShow = lot[j];
+  lotShow = createP(lot[j].content);
   // lotShow = createP("蓬萊東闕玉桃香  順水行舟仙賜方  宜男正好圖全計  不必他方小地長");
   offer.hide();
   // push();
