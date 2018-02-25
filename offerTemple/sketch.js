@@ -29,7 +29,7 @@ function backImg(img){
 }
 
 function ShowLot(){
-  j = random(lot.length);
+  j = int(random(lot.length));
   lotShow = lot[j];
   // lotShow = createP("蓬萊東闕玉桃香  順水行舟仙賜方  宜男正好圖全計  不必他方小地長");
   offer.hide();
