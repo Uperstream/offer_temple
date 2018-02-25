@@ -42,8 +42,8 @@ function ShowLot(){
   // lotShow.style("max-width", "100%");
   // lotShow.style("margin-top", "0px");
   // lotShow.style("margin-bottom", "0px");
-  lotShow.style("margin-left", "auto");
-  lotShow.style("margin-right", "auto");
+  lotShow.style("margin", "auto");
+//   lotShow.style("margin-right", "auto");
   lotShow.style("width", "50%");
   lotShow.style("height", "50%");
 
