@@ -1,59 +1,58 @@
 var lot = [];
-
+var clicked = true;
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight,WEBGL);
   canvas.position(0, 0);
   canvas.style('z-index', '-1');
     if (width<1000){
-    offer = createImg("sources/offerIn.png");
+    offer = createImg("offerTempleSources/offerIn.png");
   }else{
-    offer = createImg("sources/offer.png");
+    offer = createImg("offerTempleSources/offer.png");
   }
-  tittle = createImg("sources/tittle.png");
+  tittle = createImg("offerTempleSources/tittle.png");
   colorMode(HSB, 100);
-  loadJSON("sources/Lots.json", gotData);
+  for (var j = 1; j <= 30; j++) {
+    lot[j] = "offerTempleSources/lot-"+j+".jpg";
+  }
 } 
 
-function gotData(lots) {
-  for (var i = 0; i < lots.lots.length; j++) {
-    lot[i] = lots.lots[i].content;
-  }
-}
+// function gotData(lots) {
+//   for (var i = 0; i < lots.lots.length; j++) {
+//     lot[i] = createP(lots.lots[i].content);
+//   }
+// }
 
 function ChangeImg(img){
-  this.attribute("src","sources/offerIn.png");
+  this.attribute("src","offerTempleSources/offerIn.png");
 }
 
 function backImg(img){
-  this.attribute("src","sources/offer.png");
+  this.attribute("src","offerTempleSources/offer.png");
 }
 
 function ShowLot(){
-  j = int(random(lot.length));
-  lotShow = createP(lot[j]);
-  // lotShow = createP("蓬萊東闕玉桃香  順水行舟仙賜方  宜男正好圖全計  不必他方小地長");
+  var k = int(random(lot.length));
+  lotShow = createImg(lot[k]);
+  // // lotShow = createP("蓬萊東闕玉桃香  順水行舟仙賜方  宜男正好圖全計  不必他方小地長");
   offer.hide();
-  // push();
-  // fill(100);
-  // rotateX(HALF_PI);
-  // plane(80,80);
-  // pop();
-  // lotShow.position(width*0.5-lotShow.width*0.4,0);
-  // lotShow.style("position","fixed");
-  // lotShow.style("left","50%");
-  // lotShow.style("margin-left" ,-lotShow.width);
-  lotShow.center();
-  lotShow.style("padding", "5%");
-  lotShow.style("color", "#555");
-  lotShow.style("background-color", "#fff");
-  lotShow.style("font-size", "xx-large");
-  lotShow.style("font-family", "myFont");
-  // lotShow.style("text-align","center");
+  tittle.hide();
+  // lotShow.parent(lotShowDiv);
+  lotShow.style("display", "block");
+  // lotShow.style("max-height", "auto");
+  // lotShow.style("max-width", "100%");
+  // lotShow.style("margin-top", "0px");
+  // lotShow.style("margin-bottom", "0px");
+  lotShow.style("margin-left", "auto");
+  lotShow.style("margin-right", "auto");
+  lotShow.style("width", "50%");
+  lotShow.style("height", "50%");
 
-  lotShow.style("writing-mode","vertical-rl");
-  lotShow.style("text-orientation","upright");
-
-  // lotShow.style
+  // lotShow.style("top", "0px");
+  // lotShow.y = 0;
+  // lotShow.style("height", "50%");
+  // lotShow.style("writing-mode","vertical-rl");
+  // lotShow.style("text-orientation","upright");
+  // lotShow.style();
 }
 
 function draw() {
@@ -68,7 +67,10 @@ function draw() {
   offer.position(width*0.5-offer.width*0.5,height*0.5-offer.height*0.5);
   offer.mouseMoved(ChangeImg);
   offer.mouseOut(backImg);
-  offer.mouseClicked(ShowLot);
+  if(clicked){
+    offer.mouseClicked(ShowLot);
+    clicked = false;
+  }
 
   // if (width<1000){
   //   this.attribute("src","sources/offer.png");
@@ -119,7 +121,7 @@ function windowResized() {
   background(0);
 }
 
-function mouseClicked() {
-  background(0);
-  // mode = !mode;
-}
+// function mouseClicked() {
+//   background(0);
+//   // mode = !mode;
+// }
